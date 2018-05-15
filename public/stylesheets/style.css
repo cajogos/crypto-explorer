@@ -1,7 +1,7 @@
 body {
-  padding: 80px 40px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
- /* background-image: url('/images/background2.png');*/
+	padding: 80px 40px;
+	font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background-image: url('/images/background2.png');
 }
 
 #index-search {
@@ -43,7 +43,7 @@ body {
 }
 
 .panel-address-summary {
- margin-bottom: 5px;
+	margin-bottom: 5px;
 }
 
 /* datatable tweaks */
@@ -89,7 +89,7 @@ tr {
 
 #loading-icon {
 	width: 30px;
-    margin: 10px 10px;
+	margin: 10px 10px;
 }
 
 .menu-text {
@@ -143,14 +143,14 @@ tr {
 
 @media(max-width:1096px){
 	.nav-search input {
-	    width: 300px !important;
-    }
+		width: 300px !important;
+	}
 }
 
 @media(max-width:865px){
 	.nav-search input {
-	    width: 150px !important;
-    }
+		width: 150px !important;
+	}
 }
 .qrcode {
 	position: absolute;
