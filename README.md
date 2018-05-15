@@ -1,11 +1,10 @@
 # Crypto Explorer - 2.0.0
 
-An open source block exploer written in Node. A fork from [Iquidus Explorer](https://github.com/iquidus/explorer) (ver 1.6.1).
-
+An open source block explorer written in Node. A fork from [Iquidus Explorer v1.6.1](https://github.com/iquidus/explorer).
 
 ## See it in action
 
-**NOTE:** If you would like your instance mentioned here contact me, or make a pull request changing this README file.
+**NOTE:** Please contact me if you would like your explorer to be show cased here. Alternatively you may make a pull request changing this README file.
 
 ## Requirements
 
@@ -139,3 +138,7 @@ Where `[SIZE]` is an integer higher than the default. `SIZE` will depend on whic
 ## License
 
 Please refer to [LICENSE](LICENSE) for the license information.
+
+## Contributions
+
+Many thanks to [Iquidus](https://github.com/iquidus) for the amazing open-source project. Maintained and being upgraded by [Carlos Ferreira](https://carlos.fyi).
