@@ -162,7 +162,7 @@ Default market is loaded by default and determines the last price shown in the h
 
 _Make sure to enable Markets in the Menu Settings._
 
-### Richlist/Top 100 Settings
+### Richlist/Top 100 Settings:
 
 These are the settings for the Richlist page, where the addresses with most received coins are displayed. The `richlist` object is used to store these settings.
 
@@ -173,6 +173,22 @@ These are the settings for the Richlist page, where the addresses with most rece
     "balance": true
 }
 ```
+
+### Movement Page Settings:
+
+The `movement` object is used to store the settings for the Movement page where transactions are displayed. Change these values based on your coin.
+
+```json
+"movement": {
+    "min_amount": 100,
+    "low_flag": 1000,
+    "high_flag": 5000
+}
+```
+
+- `min_amount` - The minimum amount to display on this page. This is usually GREATER than the block reward.
+- `low_flag` - Values greater than this will be flagged yellow.
+- `high_flag` - Values greater than this will be flagged red.
 
 ### Address Labels Settings:
 
@@ -191,3 +207,28 @@ The system allows you to mask wallet addresses with a **label** (required), **ty
 - **label** - The text to display.
 - **type** - The class given to the label (Bootstrap inherited). Valid options are `default`, `primary`, `warning`, `danger` and `success`.
 - **url** - URL to link to for more information on the address given.
+
+### Additional Settings:
+
+- `heavy` - Enable/disable additional heavy features.
+  - **Example:** `false`
+- `txcount` - Amount of transactions (txs) to index per address. Stores latest N txs.
+  - **Example:** `100`
+- `show_sent_received` - Show total sent and received on address page. Set to `false` if PoS.
+  - **Example:** `true`
+- `supply` - How to calculate the total coin supply.
+  - **Valid Options:**
+    - `COINBASE` - Total sent from coinbase (PoW).
+    - `GETINFO` - Retrieve the values from `getinfo` API call (PoS).
+    - `HEAVY` - Retrieve from heavy `getsupply` API call.
+    - `BALANCES` - Total of all address balances.
+    - `TXOUTSET` - Retrieve from `gettxoutsetinfo` API call.
+  - **Example:** `"COINBASE"`
+- `nethash` - How to acquire Network Hashrate.
+  - **Valid Options:**
+    - `getnetworkhashps` - Uses the `getnetworkhashps` API call. Returns value in GH/s.
+    - `netmhashps` - Uses the `getmininginfo.netmhashpsm` API call. Returns value in MH/s.
+  - **Example:** `"getnetworkhashps"`
+- `nethash_units` - Sets Network Hashrate API return units.
+  - **Valid Options:** `"P"` (PH/s), `"T"` (TH/s), `"G"` (GH/s), `"M"` (MH/s) and `"K"` (KH/s).
+  - **Example:** `"G"`
