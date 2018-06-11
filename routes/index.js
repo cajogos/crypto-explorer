@@ -1,10 +1,10 @@
-var express = require('express')
-  , router = express.Router()
-  , settings = require('../lib/settings')
-  , locale = require('../lib/locale')
-  , db = require('../lib/database')
-  , lib = require('../lib/explorer')
-  , qr = require('qr-image');
+var express = require('express'),
+    router = express.Router(),
+    settings = require('../lib/settings'),
+    locale = require('../lib/locale'),
+    db = require('../lib/database'),
+    lib = require('../lib/explorer'),
+    qr = require('qr-image');
 
 function route_get_block(res, blockhash) {
   lib.get_block(blockhash, function (block) {
