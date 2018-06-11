@@ -7,7 +7,7 @@
   "title": "CAJOGOS",
   "logo": "/images/logo.png",
   "favicon": "public/favicon.ico",
-  "theme": "Lumen",
+  "theme": "Yeti",
   "locale": "locale/en.json",
 
   // Connection Settings
