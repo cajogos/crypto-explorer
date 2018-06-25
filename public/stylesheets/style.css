@@ -10,7 +10,7 @@ body {
 
 .nav-search input {
 	width: 400px !important;
-	margin-right: 5px;	
+	margin-right: 5px;
 }
 
 .view_tx {
@@ -96,23 +96,6 @@ tr {
 	margin-left:5px;
 }
 
-#twitter-icon {
-	font-size: 20px;
-}
-.connections {
-	position: absolute;
-	bottom: 15px;
-	right: 15px;
-}
-
-#lblBlockcount {
-	margin-right: 10px;
-}
-
-#twitter-icon img{
-	width: 40px;
-	margin: 5px 5px;
-}
 
 #market_menu {
 	margin-bottom: 5px;
@@ -134,24 +117,6 @@ tr {
 	color: #ffffff;
 }
 
-@media(max-width:767px){
-	body {
-		padding: 0px;
-		padding-top:60px;
-	}
-}
-
-@media(max-width:1096px){
-	.nav-search input {
-		width: 300px !important;
-	}
-}
-
-@media(max-width:865px){
-	.nav-search input {
-		width: 150px !important;
-	}
-}
 .qrcode {
 	position: absolute;
 	top: 65px;
@@ -164,3 +129,52 @@ tr {
 	bottom: 0px;
 }
 
+/* Site Footer */
+div.site-footer {}
+div.site-footer > div {
+	text-align: center;
+	padding: 10px;
+}
+div.site-footer div.social-links {
+	padding: 10px 40px;
+}
+div.site-footer div.social-links .social-icon {
+	font-size: 20px;
+}
+div.site-footer div.copyright-message {
+	padding-top: 20px;
+}
+div.site-footer div.copyright-message p {
+	margin: 0 0 5px 0;
+}
+div.site-footer div.copyright-message p.attribution {
+	opacity: 0.9;
+	font-size: 0.8em;
+}
+div.site-footer div.connections {
+	text-align: right;
+	padding: 25px 40px;
+}
+div.connections label {
+	margin: 0 5px;
+}
+
+/* RESPOMSIVE */
+@media (max-width:767px) {
+	body {
+		padding: 0px;
+		padding-top: 60px;
+	}
+}
+
+@media (max-width:1096px) {
+	.nav-search input {
+		width: 300px !important;
+	}
+}
+
+@media (max-width:865px) {
+	.nav-search input {
+		width: 150px !important;
+	}
+}
