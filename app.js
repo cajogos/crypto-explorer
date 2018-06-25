@@ -106,24 +106,37 @@ app.use('/ext/connections', function(req,res){
   });
 });
 
-// locals
+/**
+ * Locals (Displays in Templates)
+ */
+// Main / Front-end Settings
 app.set('title', settings.title);
-app.set('symbol', settings.symbol);
-app.set('coin', settings.coin);
-app.set('locale', locale);
-app.set('display', settings.display);
-app.set('markets', settings.markets);
-app.set('twitter', settings.twitter);
-app.set('genesis_block', settings.genesis_block);
-app.set('index', settings.index);
-app.set('heavy', settings.heavy);
-app.set('txcount', settings.txcount);
-app.set('nethash', settings.nethash);
-app.set('nethash_units', settings.nethash_units);
-app.set('show_sent_received', settings.show_sent_received);
 app.set('logo', settings.logo);
 app.set('theme', settings.theme);
+app.set('locale', locale);
+app.set('copyright', settings.copyright);
+// Coin / Blockchain Settings
+app.set('coin', settings.coin);
+app.set('symbol', settings.symbol);
+app.set('genesis_block', settings.genesis_block);
+// Menu Settings
+app.set('display', settings.display);
+// Index Page Settings
+app.set('index', settings.index);
+// Markets Settings
+app.set('markets', settings.markets);
+// Social Media Settings
+app.set('twitter', settings.twitter);
+app.set('facebook', settings.facebook);
+app.set('googleplus', settings.googleplus);
+// Address Label Settings
 app.set('labels', settings.labels);
+// Additional Settings
+app.set('heavy', settings.heavy);
+app.set('txcount', settings.txcount);
+app.set('show_sent_received', settings.show_sent_received);
+app.set('nethash', settings.nethash);
+app.set('nethash_units', settings.nethash_units);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

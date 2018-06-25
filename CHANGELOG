@@ -1,3 +1,8 @@
+2.0.0
+* improved the settings files
+* added copyright message options
+* clean-up and refactoring of main code
+
 1.6.1
 * fixed last_txs setting
 * added hashrate_units setting

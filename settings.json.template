@@ -4,11 +4,15 @@
 */
 {
   // Main / Front-end Settings
-  "title": "CAJOGOS",
+  "title": "Crypto Explorer",
   "logo": "/images/logo.png",
   "favicon": "public/favicon.ico",
   "theme": "Yeti",
   "locale": "locale/en.json",
+  "copyright": {
+    "name": "PlusOneCoin",
+    "website": "https://plusonecoin.org"
+  },
 
   // Connection Settings
   "address": "127.0.0.1:3001",
@@ -33,9 +37,9 @@
   // Wallet Settings
   "wallet": {
     "host": "localhost",
-    "port": 27777,
-    "user": "plusonecoinrpc",
-    "pass": "superDifficultPassword1234"
+    "port": 22777,
+    "user": "carlos",
+    "pass": "carlos1234"
   },
 
   // Update Script Settings
@@ -51,8 +55,8 @@
     "movement": true,
     "network": true,
     "twitter": true,
-    "facebook": false,
-    "googleplus": false
+    "facebook": true,
+    "googleplus": true
   },
 
   // Social Media Settings
@@ -77,15 +81,15 @@
 
   // Market Settings
   "markets": {
-    "coin": "JBS",
+    "coin": "PLUS1",
     "exchange": "BTC",
-    "enabled": ["bittrex"],
+    "enabled": [],
     "cryptopia_id": "1658",
     "ccex_key" : "Get-Your-Own-Key",
     "default": "bittrex"
   },
 
-  // Richlist/Top 100 Settings
+  // Richlist / Top 100 Settings
   "richlist": {
     "distribution": true,
     "received": true,

@@ -1,10 +1,10 @@
 var express = require('express'),
-    router = express.Router(),
-    settings = require('../lib/settings'),
-    locale = require('../lib/locale'),
-    db = require('../lib/database'),
-    lib = require('../lib/explorer'),
-    qr = require('qr-image');
+router = express.Router(),
+settings = require('../lib/settings'),
+locale = require('../lib/locale'),
+db = require('../lib/database'),
+lib = require('../lib/explorer'),
+qr = require('qr-image');
 
 function route_get_block(res, blockhash) {
   lib.get_block(blockhash, function (block) {
@@ -88,46 +88,75 @@ function route_get_tx(res, txid) {
   }
 }
 
-function route_get_index(res, error) {
-  res.render('index', { active: 'home', error: error, warning: null});
+function route_get_index(res, error)
+{
+  var locals = {
+    active: 'home',
+    error: error,
+    warning: null
+  };
+  res.render('index', locals);
 }
 
-function route_get_address(res, hash, count) {
-  db.get_address(hash, function(address) {
-    if (address) {
+function route_get_address(res, hash, count)
+{
+  db.get_address(hash, function(address)
+  {
+    if (address)
+    {
       var txs = [];
       var hashes = address.txs.reverse();
-      if (address.txs.length < count) {
+      if (address.txs.length < count)
+      {
         count = address.txs.length;
       }
-      lib.syncLoop(count, function (loop) {
+      lib.syncLoop(count, function (loop)
+      {
         var i = loop.iteration();
-        db.get_tx(hashes[i].addresses, function(tx) {
-          if (tx) {
+        db.get_tx(hashes[i].addresses, function(tx)
+        {
+          if (tx)
+          {
             txs.push(tx);
             loop.next();
-          } else {
+          }
+          else
+          {
             loop.next();
           }
         });
-      }, function(){
-
-        res.render('address', { active: 'address', address: address, txs: txs});
+      }, function()
+      {
+        var locals = {
+          active: 'address',
+          address: address,
+          txs: txs
+        };
+        res.render('address', locals);
       });
-
-    } else {
-      route_get_index(res, hash + ' not found');
+    }
+    else
+    {
+      var error = hash + ' not found';
+      route_get_index(res, error);
     }
   });
 }
 
 /* GET home page. */
-router.get('/', function(req, res) {
+router.get('/', function(req, res)
+{
   route_get_index(res, null);
 });
 
-router.get('/info', function(req, res) {
-  res.render('info', { active: 'info', address: settings.address, hashes: settings.api });
+router.get('/info', function(req, res)
+{
+  var locals = {
+    active: 'info',
+    address: settings.address,
+    hashes: settings.api
+  };
+  res.render('info', locals);
 });
 
 router.get('/markets/:market', function(req, res) {
@@ -196,22 +225,22 @@ router.get('/network', function(req, res) {
 
 router.get('/reward', function(req, res){
   //db.get_stats(settings.coin, function (stats) {
-    console.log(stats);
-    db.get_heavy(settings.coin, function (heavy) {
-      //heavy = heavy;
-      var votes = heavy.votes;
-      votes.sort(function (a,b) {
-        if (a.count < b.count) {
-          return -1;
-        } else if (a.count > b.count) {
-          return 1;
-        } else {
-         return 0;
-        }
-      });
-
-      res.render('reward', { active: 'reward', stats: stats, heavy: heavy, votes: heavy.votes });
+  console.log(stats);
+  db.get_heavy(settings.coin, function (heavy) {
+    //heavy = heavy;
+    var votes = heavy.votes;
+    votes.sort(function (a,b) {
+      if (a.count < b.count) {
+        return -1;
+      } else if (a.count > b.count) {
+        return 1;
+      } else {
+        return 0;
+      }
     });
+
+    res.render('reward', { active: 'reward', stats: stats, heavy: heavy, votes: heavy.votes });
+  });
   //});
 });
 
@@ -285,12 +314,12 @@ router.get('/ext/summary', function(req, res) {
   lib.get_difficulty(function(difficulty) {
     difficultyHybrid = ''
     if (difficulty['proof-of-work']) {
-            if (settings.index.difficulty == 'Hybrid') {
-              difficultyHybrid = 'POS: ' + difficulty['proof-of-stake'];
-              difficulty = 'POW: ' + difficulty['proof-of-work'];
-            } else if (settings.index.difficulty == 'POW') {
-              difficulty = difficulty['proof-of-work'];
-            } else {
+      if (settings.index.difficulty == 'Hybrid') {
+        difficultyHybrid = 'POS: ' + difficulty['proof-of-stake'];
+        difficulty = 'POW: ' + difficulty['proof-of-work'];
+      } else if (settings.index.difficulty == 'POW') {
+        difficulty = difficulty['proof-of-work'];
+      } else {
         difficulty = difficulty['proof-of-stake'];
       }
     }
