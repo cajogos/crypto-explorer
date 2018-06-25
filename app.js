@@ -127,6 +127,7 @@ app.set('index', settings.index);
 app.set('markets', settings.markets);
 // Social Media Settings
 app.set('twitter', settings.twitter);
+app.set('discord', settings.discord);
 app.set('facebook', settings.facebook);
 app.set('googleplus', settings.googleplus);
 // Address Label Settings
